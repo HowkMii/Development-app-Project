@@ -1,6 +1,8 @@
 package coj.example.pwdevapp
 
 import android.database.sqlite.SQLiteDatabase
+import android.database.sqlite.SQLiteOpenHelper
+import android.widget.Toast
 
 class DbManager {
     val dbName="stdPresence"
@@ -14,4 +16,22 @@ class DbManager {
     constructor(){
 
     }
+}
+class DatabaseHelperStudent:SQLiteOpenHelper{
+    var context: Context?=null
+    va
+    constructor(context:Context):super(context,dbName,null,dbVersion){
+        this.context=context
+
+    }
+    override fun onCreate(p0: SQLiteDatabase?) {
+       p0!!.execSQL(sqlCreateTable)
+        Toast.makeText(this.context)
+
+    }
+
+    override fun onUpgrade(p0: SQLiteDatabase?, p1: Int, p2: Int) {
+        TODO("Not yet implemented")
+    }
+
 }
