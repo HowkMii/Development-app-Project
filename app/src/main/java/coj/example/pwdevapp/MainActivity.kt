@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         codeScanner.scanMode = ScanMode.SINGLE // or CONTINUOUS or PREVIEW
         codeScanner.isAutoFocusEnabled = true // Whether to enable auto focus or not
         codeScanner.isFlashEnabled = false // Whether to enable flash or not
-
+            // Pull test
         // Callbacks
         codeScanner.decodeCallback = DecodeCallback {
             runOnUiThread {
