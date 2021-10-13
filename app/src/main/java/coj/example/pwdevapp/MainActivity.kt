@@ -9,13 +9,17 @@ import com.budiyev.android.codescanner.CodeScannerView
 import com.budiyev.android.codescanner.DecodeCallback
 import com.budiyev.android.codescanner.ErrorCallback
 import com.budiyev.android.codescanner.ScanMode
+import java.security.AccessController.getContext
+import java.util.Calendar.getInstance
 
 class MainActivity : AppCompatActivity() {
     private lateinit var codeScanner: CodeScanner
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        supportActionBar?.hide()
         val scannerView = findViewById<CodeScannerView>(R.id.scanner_view)
 
         codeScanner = CodeScanner(this, scannerView)
@@ -41,7 +45,7 @@ class MainActivity : AppCompatActivity() {
                     Toast.LENGTH_LONG).show()
             }
         }
-
+        var dbM:DbManager=DbManager(this)
         scannerView.setOnClickListener {
             codeScanner.startPreview()
         }

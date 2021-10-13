@@ -8,11 +8,20 @@ import android.widget.Toast
 class DbManager {
     val dbName="stdPresence"
     val dbTable="student"
+    val dbTableE="evaluation"
+    val dbTableP="presance"
     val colstdID="stdID"
     val colFname="Fname"
     val colLname="Lname"
+    val colID="ID"
+    val colprS="prS"
+    val coldateP="dateP"
+    val colnoteE="noteE"
     val dbVersion=1
-    val sqlCreateTable="Create table if not exist"+dbTable+"("+colstdID+"Integer primary key"+colFname+"text"+colLname+"text);"
+    val sqlCreateTable="CREATE TABLE IF NOT EXISTS "+dbTable+"("+colstdID+" INTEGER PRIMARY KEY ,"+colFname+" TEXT ,"+colLname+" TEXT );"
+    val sqlCreateTableP="CREATE TABLE IF NOT EXISTS "+dbTableP+"("+colID+" INTEGER PRIMARY KEY ,"+colprS+" INTEGER ,"+colstdID+" INTEGER FOREIGN KEY ,"+coldateP+" Integer );"
+    val sqlCreateTableE="CREATE TABLE IF NOT EXISTS "+dbTableP+"("+colID+" INTEGER FOREIGN KEY ,"+colstdID+" INTEGER FOREIGN KEY ,"+colnoteE+" INTEGER );"
+
     var sqlDB: SQLiteDatabase?=null
     constructor(context: Context){
         val db=DatabaseHelperStudent(context)
@@ -27,8 +36,11 @@ class DbManager {
         }
         override fun onCreate(p0: SQLiteDatabase?) {
             p0!!.execSQL(sqlCreateTable)
-            Toast.makeText(this.context,"database is created",Toast.LENGTH_SHORT).show()
-
+            Toast.makeText(this.context,"database is created sqlCreateTableE",Toast.LENGTH_SHORT).show()
+            p0!!.execSQL(sqlCreateTableP)
+            Toast.makeText(this.context,"database is created sqlCreateTableP",Toast.LENGTH_SHORT).show()
+            p0!!.execSQL(sqlCreateTableE)
+            Toast.makeText(this.context,"database is created sqlCreateTableE",Toast.LENGTH_SHORT).show()
         }
 
         override fun onUpgrade(p0: SQLiteDatabase?, p1: Int, p2: Int) {
