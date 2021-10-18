@@ -6,26 +6,27 @@ import android.database.sqlite.SQLiteOpenHelper
 import android.widget.Toast
 
 class DbManager {
-
     val dbName="stdPresence"
-    val dbTable="student"
-    val dbTableE="evaluation"
-    val dbTableP="presance"
+    val dbTable="Student"
+    val dbTableE="Evaluation"
+    val dbTableP="Presance"
     val colstdID="stdID"
     val colFname="Fname"
     val colLname="Lname"
+    var colMajor="Major"
+    var colBirth="Birth"
     val colID="ID"
     val colprS="prS"
     val coldateP="dateP"
     val colnoteE="noteE"
     val dbVersion=1
     val sqlCreateTable="CREATE TABLE "+dbTable+"  ("+colstdID+" INTEGER PRIMARY KEY , "+
-            colFname+" TEXT ,"+colLname+" TEXT );"
+            colFname+" TEXT ,"+colLname+" TEXT ,"+colMajor+" TEXT ,"+colBirth+" DATE );"
     val sqlCreateTableP="CREATE TABLE "+dbTableP+"  ("+colID+" INTEGER PRIMARY KEY , "+
-            colprS+" INTEGER ,"+colstdID+" INTEGER , "+
-            coldateP+" INTEGER , FOREIGN KEY("+colstdID+") REFERENCES "+dbTable+"("+colstdID+"));"
-    val sqlCreateTableE="CREATE TABLE "+dbTableE+"   ("+colID+" INTEGER  , "+colstdID+" INTEGER  ,"+
-            colnoteE+" INTEGER, FOREIGN KEY("+colID+") REFERENCES "+dbTableP+"("+colID+"),  FOREIGN KEY("+
+            colprS+" BOOLEAN ,"+colstdID+" INTEGER , "+
+            coldateP+" DATE , FOREIGN KEY("+colstdID+") REFERENCES "+dbTable+"("+colstdID+"));"
+    val sqlCreateTableE="CREATE TABLE "+dbTableE+"   ( "+colstdID+" INTEGER  ,"+
+            colnoteE+" INTEGER,  FOREIGN KEY("+
             colstdID+") REFERENCES "+dbTable+"("+colstdID+"));"
 
     var sqlDB: SQLiteDatabase? = null
@@ -48,10 +49,9 @@ class DbManager {
             p0!!.execSQL(sqlCreateTableE)
             Toast.makeText(this.context,"database is created sqlCreateTableE",Toast.LENGTH_SHORT).show()
         }
-
         override fun onUpgrade(p0: SQLiteDatabase?, p1: Int, p2: Int) {
-
         }
 
     }
 }
+

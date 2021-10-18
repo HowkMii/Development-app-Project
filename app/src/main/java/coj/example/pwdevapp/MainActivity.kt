@@ -1,8 +1,13 @@
 package coj.example.pwdevapp
 
+import android.Manifest
+import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.*
 import com.budiyev.android.codescanner.AutoFocusMode
 import com.budiyev.android.codescanner.CodeScanner
 import com.budiyev.android.codescanner.CodeScannerView
@@ -12,13 +17,20 @@ import com.budiyev.android.codescanner.ScanMode
 import java.security.AccessController.getContext
 import java.util.Calendar.getInstance
 
+
 class MainActivity : AppCompatActivity() {
     private lateinit var codeScanner: CodeScanner
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED){
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA),100)
+        }
+
+
         supportActionBar?.hide()
         val scannerView = findViewById<CodeScannerView>(R.id.scanner_view)
 
@@ -41,8 +53,7 @@ class MainActivity : AppCompatActivity() {
         }
         codeScanner.errorCallback = ErrorCallback { // or ErrorCallback.SUPPRESS
             runOnUiThread {
-                Toast.makeText(this, "Camera initialization error: ${it.message}",
-                    Toast.LENGTH_LONG).show()
+
             }
         }
         var dbM:DbManager=DbManager(this)
@@ -60,4 +71,5 @@ class MainActivity : AppCompatActivity() {
         codeScanner.releaseResources()
         super.onPause()
     }
+
 }
