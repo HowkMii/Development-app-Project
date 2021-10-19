@@ -34,15 +34,15 @@ class MainActivity : AppCompatActivity() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED){
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA),100)
         }
-        /*val fab = findViewById<View>(android.R.id.fab_addstd) as FloatingActionButton
+       val fab: FloatingActionButton = findViewById(R.id.fab_addstd)
         fab.setOnClickListener {
             startActivity(
                 Intent(
                     this,
-                    activity_add_student::class.java
+                        AddStudentActivity::class.java
                 )
             )
-        }*/
+        }
 
         supportActionBar?.hide()
         val scannerView = findViewById<CodeScannerView>(R.id.scanner_view)
