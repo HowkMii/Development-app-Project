@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper
 import android.widget.Toast
 
 class DbManager {
+
     val dbName="stdPresence"
     val dbTable="Student"
     val dbTableE="Evaluation"
@@ -19,7 +20,7 @@ class DbManager {
     val colprS="prS"
     val coldateP="dateP"
     val colnoteE="noteE"
-    val dbVersion=1
+    var dbVersion=1
     val sqlCreateTable="CREATE TABLE "+dbTable+"  ("+colstdID+" INTEGER PRIMARY KEY , "+
             colFname+" TEXT ,"+colLname+" TEXT ,"+colMajor+" TEXT ,"+colBirth+" DATE );"
     val sqlCreateTableP="CREATE TABLE "+dbTableP+"  ("+colID+" INTEGER PRIMARY KEY , "+
@@ -43,6 +44,7 @@ class DbManager {
         }
         override fun onCreate(p0: SQLiteDatabase?) {
             p0!!.execSQL(sqlCreateTable)
+
             Toast.makeText(this.context,"database is created sqlCreateTableE",Toast.LENGTH_SHORT).show()
             p0!!.execSQL(sqlCreateTableP)
             Toast.makeText(this.context,"database is created sqlCreateTableP",Toast.LENGTH_SHORT).show()
