@@ -38,7 +38,7 @@
         >
         <com.getbase.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab_addstd"
-            app:fab_title="add new Student"
+            app:fab_title="Student Manger"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:fab_colorNormal="@color/white"

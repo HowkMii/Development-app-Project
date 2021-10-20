@@ -69,7 +69,7 @@ class MainActivity : AppCompatActivity() {
 
             }
         }
-        var dbM:DbManager=DbManager(this)
+        //var dbM:DbManager=DbManager(this)
         scannerView.setOnClickListener {
             codeScanner.startPreview()
         }

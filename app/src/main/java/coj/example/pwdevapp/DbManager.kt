@@ -2,6 +2,7 @@ package coj.example.pwdevapp
 
 import android.content.ContentValues
 import android.content.Context
+import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.widget.Toast
@@ -36,7 +37,7 @@ class DbManager {
         val db=DatabaseHelperStudent(context)
         sqlDB=db.writableDatabase
     }
-    inner class DatabaseHelperStudent:SQLiteOpenHelper{
+     inner class DatabaseHelperStudent:SQLiteOpenHelper{
         var context: Context?=null
 
         constructor(context:Context):super(context,dbName,null,dbVersion){
@@ -54,8 +55,50 @@ class DbManager {
         }
         override fun onUpgrade(p0: SQLiteDatabase?, p1: Int, p2: Int) {
         }
+         fun insertUser(stdId :String, Fname:String,
+            Lname:String,Major:String,Birth:String): Boolean {
+            // Gets the data repository in write mode
+            val db = writableDatabase
+
+            // Create a new map of values, where column names are the keys
+            val values = ContentValues()
+            values.put(colstdID, stdId)
+            values.put(colFname, Fname)
+            values.put(colLname, Lname)
+            values.put(colMajor, Major)
+            values.put(colBirth, Birth)
+
+            // Insert the new row, returning the primary key value of the new row
+            val newRowId = db.insert(dbTable, null, values)
+            return true
+        }
+
+         fun checkUser(v:String):Boolean {
+             val db = writableDatabase
+             val c: Cursor =db.rawQuery("SELECT * FROM " + dbTable + " WHERE " + colstdID + " =  ?", arrayOf(v));
+             return c.count > 0;
+         }
 
 
+
+         fun updateUser(stdId :String, Fname:String,
+                        Lname:String,Major:String,Birth:String): Boolean {
+             // Gets the data repository in write mode
+             val db = writableDatabase
+
+             // Create a new map of values, where column names are the keys
+             val values = ContentValues()
+             values.put(colstdID, stdId)
+             values.put(colFname, Fname)
+             values.put(colLname, Lname)
+             values.put(colMajor, Major)
+             values.put(colBirth, Birth)
+
+             // Insert the new row, returning the primary key value of the new row
+             val newRowId = db.update(dbTable, values,
+             colstdID + " = ?", arrayOf(stdId))
+             return newRowId != -1
+         }
 
 
     }

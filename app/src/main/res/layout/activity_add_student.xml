@@ -7,7 +7,7 @@
     tools:context=".AddStudentActivity" >
 
     <EditText
-        android:id="@+id/Stdiddd"
+        android:id="@+id/std_id"
         android:layout_width="230dp"
         android:layout_height="50dp"
         android:layout_above="@+id/fname"
@@ -30,7 +30,7 @@
         android:id="@+id/fname"
         android:layout_width="230dp"
         android:layout_height="50dp"
-        android:layout_above="@+id/Lname"
+        android:layout_above="@+id/lname"
         android:layout_alignParentStart="true"
 
         android:layout_alignParentEnd="true"
@@ -39,7 +39,7 @@
         android:layout_marginEnd="91dp"
         android:layout_marginBottom="51dp"
         android:ems="10"
-        android:hint="Last Name"
+        android:hint="First Name"
         android:inputType="text"
         android:paddingLeft="20dp"
         android:textColor="#000000"
@@ -47,7 +47,7 @@
         android:textSize="14dp" />
 
     <EditText
-        android:id="@+id/Lname"
+        android:id="@+id/lname"
         android:layout_width="230dp"
         android:layout_height="50dp"
         android:layout_above="@+id/major"
@@ -87,7 +87,7 @@
         android:id="@+id/bday"
         android:layout_width="230dp"
         android:layout_height="50dp"
-        android:layout_above="@+id/Submit"
+        android:layout_above="@+id/submit"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="87dp"
@@ -103,7 +103,7 @@
         android:textSize="14dp" />
 
     <Button
-        android:id="@+id/Submit"
+        android:id="@+id/submit"
         android:layout_width="230dp"
         android:layout_height="50dp"
         android:layout_alignParentStart="true"
