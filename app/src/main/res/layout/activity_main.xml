@@ -24,28 +24,28 @@
 
 
     </com.budiyev.android.codescanner.CodeScannerView>
+
     <com.getbase.floatingactionbutton.FloatingActionsMenu
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         app:fab_addButtonColorNormal="@color/brown"
         app:fab_addButtonColorPressed="@color/pink_pressed"
         app:fab_addButtonPlusIconColor="@color/white"
-        app:fab_labelStyle="@style/customFab"
-        >
+        app:fab_labelStyle="@style/customFab">
+
         <com.getbase.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab_addstd"
-            app:fab_title="Student Manger"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:fab_colorNormal="@color/white"
             app:fab_colorPressed="@color/white_pressed"
-            app:fab_size="mini"
             app:fab_icon="@drawable/ic_add"
-            />
+            app:fab_size="mini" />
+
     </com.getbase.floatingactionbutton.FloatingActionsMenu>
 
 

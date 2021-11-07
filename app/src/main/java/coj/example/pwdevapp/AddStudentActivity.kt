@@ -33,7 +33,7 @@ class AddStudentActivity : AppCompatActivity() {
                         && !(lneditText.editableText.toString().compareTo("") == 0 )
                         && !(majeditText.editableText.toString().compareTo("") == 0)
                         && !(bdeditText.editableText.toString().compareTo("") == 0) ) {
-                        Log.v("Hakim","nkfdkgnkdfngdfklngkldfngdfkn")
+
                     if(dbM.checkUser(stdeditText.editableText.toString())) {
                         val e :PDialog = PDialog( {
                             dbM.updateUser(stdeditText.editableText.toString(),

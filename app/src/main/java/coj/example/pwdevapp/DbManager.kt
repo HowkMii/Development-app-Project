@@ -6,6 +6,7 @@ import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.widget.Toast
+import java.util.*
 
 class DbManager {
 
@@ -81,6 +82,7 @@ class DbManager {
 
 
 
+
          fun updateUser(stdId :String, Fname:String,
                         Lname:String,Major:String,Birth:String): Boolean {
              // Gets the data repository in write mode
@@ -100,7 +102,54 @@ class DbManager {
              return newRowId != -1
          }
 
+         fun insertUserP(stdID:String,
+                         prS:Boolean, dateP: String) : Boolean {
+             // Gets the data repository in write mode
+             val db = writableDatabase
 
-    }
+             // Create a new map of values, where column names are the keys
+             val values = ContentValues()
+             values.put(colstdID, stdID)
+             values.put(colprS, prS)
+             values.put(coldateP, dateP)
+
+
+
+
+             // Insert the new row, returning the primary key value of the new row
+             val newRowId = db.insert(dbTableP, null, values)
+             return true
+         }
+
+         fun checkUserP(v:String):Boolean {
+             val db = writableDatabase
+             val c: Cursor =db.rawQuery("SELECT * FROM " + dbTableP + " WHERE " + colstdID + " =  ?", arrayOf(v));
+             return c.count > 0;
+         }
+
+
+
+         fun updateUserP(pID :Int, stdID:String,
+                         prS:Boolean, dateP: Date): Boolean {
+             // Gets the data repository in write mode
+             val db = writableDatabase
+
+             // Create a new map of values, where column names are the keys
+             val values = ContentValues()
+             values.put(colID, pID)
+             values.put(colstdID, stdID)
+             values.put(colprS, prS)
+             values.put(coldateP, dateP.toString())
+
+
+             // Insert the new row, returning the primary key value of the new row
+             val newRowId = db.update(dbTableP, values,
+                 colstdID + " = ?", arrayOf())
+             return newRowId != -1
+         }
+
+
+
+     }
 }
 
