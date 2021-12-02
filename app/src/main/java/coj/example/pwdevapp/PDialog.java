@@ -28,6 +28,7 @@ public  class PDialog extends DialogFragment {
 
             AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
 
+
             builder.setTitle("Alert");
             builder.setMessage("This user is already exist, Do you want to update?");
             builder.setPositiveButton("Update",new DialogInterface.OnClickListener(){
@@ -35,7 +36,6 @@ public  class PDialog extends DialogFragment {
                     exitListener.onClick(null);
                 }
             });
-
             builder.setNegativeButton("Cancel",new DialogInterface.OnClickListener(){
                 public void onClick(DialogInterface var1, int var2){
                   dismiss();
@@ -43,6 +43,10 @@ public  class PDialog extends DialogFragment {
             });
 
             return builder.create();
+
+
+
         }
+
 
 }

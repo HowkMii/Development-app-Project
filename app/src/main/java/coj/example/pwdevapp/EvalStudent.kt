@@ -50,8 +50,10 @@ class EvalStudent : AppCompatActivity() {
             runOnUiThread {
 
                 Toast.makeText(this, "Scan result: ${it.text}", Toast.LENGTH_LONG).show()
-                //var time =  LocalDateTime.now().toString()
-                //dbStudent.insertUserP(it.text,true,time)
+                val e :PDialog = PDialog( {
+
+                })
+                e.show(supportFragmentManager,null)
             }
         }
         codeScanner.errorCallback = ErrorCallback { // or ErrorCallback.SUPPRESS
