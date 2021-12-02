@@ -50,7 +50,7 @@ class EvalStudent : AppCompatActivity() {
             runOnUiThread {
 
                 Toast.makeText(this, "Scan result: ${it.text}", Toast.LENGTH_LONG).show()
-                val e :PDialog = PDialog( {
+                val e :EDialog = EDialog( {
 
                 })
                 e.show(supportFragmentManager,null)
