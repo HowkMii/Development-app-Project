@@ -3,6 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/abdel/Desktop/Development-app-Project/app/src/main/res/drawable/cursor.xml" value="0.1984375" />
+        <entry key="..\:/Users/abdel/Desktop/Development-app-Project/app/src/main/res/drawable/ic_add.xml" value="0.1984375" />
+        <entry key="..\:/Users/abdel/Desktop/Development-app-Project/app/src/main/res/drawable/ic_baseline_date_range_24.xml" value="0.1984375" />
+        <entry key="..\:/Users/abdel/Desktop/Development-app-Project/app/src/main/res/drawable/ic_baseline_perm_identity_24.xml" value="0.1984375" />
+        <entry key="..\:/Users/abdel/Desktop/Development-app-Project/app/src/main/res/drawable/no_back.xml" value="0.1984375" />
+        <entry key="..\:/Users/abdel/Desktop/Development-app-Project/app/src/main/res/layout/activity_add_student.xml" value="1.1" />
+        <entry key="..\:/Users/abdel/Desktop/Development-app-Project/app/src/main/res/layout/activity_main.xml" value="0.18229166666666666" />
         <entry key="..\:/Users/abdel/Documents/WorkSpace/pwdevapp/app/src/main/res/layout/activity_add_student.xml" value="0.2" />
         <entry key="..\:/Users/abdel/Documents/WorkSpace/pwdevapp/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/abdel/Documents/pwdevapp/app/src/main/res/layout/activity_add_student.xml" value="0.184375" />
@@ -10,7 +17,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="openjdk-17" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="openjdk-17" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

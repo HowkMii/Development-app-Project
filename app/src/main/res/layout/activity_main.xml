@@ -32,8 +32,9 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        app:fab_addButtonColorNormal="@color/brown"
-        app:fab_addButtonColorPressed="@color/pink_pressed"
+        android:layout_marginBottom="20dp"
+
+        app:fab_addButtonColorPressed="@color/textColor"
         app:fab_addButtonPlusIconColor="@color/white"
         app:fab_labelStyle="@style/customFab">
 
