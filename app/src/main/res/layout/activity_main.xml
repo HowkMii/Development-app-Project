@@ -37,6 +37,14 @@
         app:fab_addButtonColorPressed="@color/textColor"
         app:fab_addButtonPlusIconColor="@color/white"
         app:fab_labelStyle="@style/customFab">
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_evaluation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_colorNormal="@color/white"
+            app:fab_colorPressed="@color/white_pressed"
+            app:fab_icon="@drawable/ic_baseline_trending_up_24"
+            app:fab_size="mini" />
 
         <com.getbase.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab_addstd"
@@ -46,6 +54,7 @@
             app:fab_colorPressed="@color/white_pressed"
             app:fab_icon="@drawable/ic_add"
             app:fab_size="mini" />
+
 
     </com.getbase.floatingactionbutton.FloatingActionsMenu>
 

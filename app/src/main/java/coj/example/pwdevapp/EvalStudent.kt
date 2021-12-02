@@ -1,11 +1,11 @@
 package coj.example.pwdevapp
 
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.annotation.RequiresApi
@@ -24,44 +24,16 @@ import java.security.AccessController.getContext
 import java.time.LocalDateTime
 import java.util.Calendar.getInstance
 
-
-class MainActivity : AppCompatActivity() {
+class EvalStudent : AppCompatActivity() {
     private lateinit var codeScanner: CodeScanner
-
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
-
-
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        var dbManager = DbManager(this)
-        var dbStudent = dbManager.DatabaseHelperStudent(this)
-
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED){
-            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA),100)
-        }
-       val fab: FloatingActionButton = findViewById(R.id.fab_addstd)
-        fab.setOnClickListener {
-            startActivity(
-                Intent(
-                    this,
-                        AddStudentActivity::class.java
-                )
-            )
-        }
-        val fabe: FloatingActionButton = findViewById(R.id.fab_evaluation)
-        fabe.setOnClickListener {
-            startActivity(
-                Intent(
-                    this,
-                    EvalStudent::class.java
-                )
-            )
-        }
-
-        supportActionBar?.hide()
+        setContentView(R.layout.activity_eval_student)
+        //var dbManager = DbManager(this)
+        //var dbEvalStudent = dbManager.DatabaseHelperStudent(this)
         val scannerView = findViewById<CodeScannerView>(R.id.scanner_view)
-
+        supportActionBar?.hide()
         codeScanner = CodeScanner(this, scannerView)
 
         // Parameters (default values)
@@ -78,8 +50,8 @@ class MainActivity : AppCompatActivity() {
             runOnUiThread {
 
                 Toast.makeText(this, "Scan result: ${it.text}", Toast.LENGTH_LONG).show()
-                var time =  LocalDateTime.now().toString()
-                dbStudent.insertUserP(it.text,true,time)
+                //var time =  LocalDateTime.now().toString()
+                //dbStudent.insertUserP(it.text,true,time)
             }
         }
         codeScanner.errorCallback = ErrorCallback { // or ErrorCallback.SUPPRESS
@@ -104,5 +76,5 @@ class MainActivity : AppCompatActivity() {
         codeScanner.releaseResources()
         super.onPause()
     }
+    }
 
-}
